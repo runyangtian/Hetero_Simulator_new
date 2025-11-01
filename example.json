@@ -1,0 +1,94 @@
+{
+  "description": "example json",
+  "tensors": [
+    {"name": "W_o_0", "shape": [2048, 2048], "bits": 4, "device": "dram", "layer": 5},
+
+    {"name": "K_cache_h1",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},  
+    {"name": "K_cache_h2",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h3",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h4",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h5",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h6",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h7",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h8",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h9",  "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h10", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h11", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h12", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h13", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h14", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h15", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "K_cache_h16", "shape": [668, 128], "bits": 16, "device": "dram", "layer": 1},
+
+
+    {"name": "Q_t_h1",  "shape": [1, 128], "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h2",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h3",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h4",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h5",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h6",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h7",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h8",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h9",  "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h10", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h11", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h12", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h13", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h14", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h15", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+    {"name": "Q_t_h16", "shape": [1,128],  "bits": 16, "device": "dram", "layer": 1},
+
+    {"name": "attn_scores_h1", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h2", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h3", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h4", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h5", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h6", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h7", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h8", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h9", "shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h10","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h11","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h12","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h13","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h14","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h15","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_scores_h16","shape": [1,668], "bits": 16, "device": "dram", "layer": 2},
+
+    {"name": "attn_ctx_cat",   "shape": [1, 2048], "bits": 16, "device": "dram", "layer": 2},
+    {"name": "attn_out",       "shape": [1, 2048], "bits": 16, "device": "dram", "layer": 2},
+  
+    {"name": "W1_0",         "shape": [2048, 8192], "bits": 4,  "device":  "rram", "layer": 1},
+    {"name": "ff1",          "shape": [424, 8192], "bits": 16, "device":  "rram", "layer": 0}
+  ],
+
+  "ops": [
+    {
+    "type": "ParallelOps",
+    "branches": [
+      {"type": "MatMul", "A": "Q_t_h1",  "B": "K_cache_h1",  "C": "attn_scores_h1",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h2",  "B": "K_cache_h2",  "C": "attn_scores_h2",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h3",  "B": "K_cache_h3",  "C": "attn_scores_h3",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h4",  "B": "K_cache_h4",  "C": "attn_scores_h4",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h5",  "B": "K_cache_h5",  "C": "attn_scores_h5",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h6",  "B": "K_cache_h6",  "C": "attn_scores_h6",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h7",  "B": "K_cache_h7",  "C": "attn_scores_h7",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h8",  "B": "K_cache_h8",  "C": "attn_scores_h8",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h9",  "B": "K_cache_h9",  "C": "attn_scores_h9",  "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h10", "B": "K_cache_h10", "C": "attn_scores_h10", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h11", "B": "K_cache_h11", "C": "attn_scores_h11", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h12", "B": "K_cache_h12", "C": "attn_scores_h12", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h13", "B": "K_cache_h13", "C": "attn_scores_h13", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h14", "B": "K_cache_h14", "C": "attn_scores_h14", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h15", "B": "K_cache_h15", "C": "attn_scores_h15", "transpose_B": true},
+      {"type": "MatMul", "A": "Q_t_h16", "B": "K_cache_h16", "C": "attn_scores_h16", "transpose_B": true}
+      ]
+    },
+    {"type": "MatMul", "A": "attn_ctx_cat", "B": "W_o_0", "C": "attn_out"},
+    {"type": "UCIeOp", "size_bits": 32768},
+
+    {"type": "MatMul", "A": "attn_out", "B": "W1_0", "C": "ff1"},
+    
+    {"type": "UCIeOp", "size_bits": 13893632}
+  ]
+}

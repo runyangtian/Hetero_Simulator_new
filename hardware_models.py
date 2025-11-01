@@ -1,0 +1,107 @@
+# Define HW components (MemoryDevice, ComputeUnit), tensor data structure, statistical data structure 
+from dataclasses import dataclass, field
+import math
+import numpy as np
+from typing import Tuple, Dict, List
+
+# ----------------------------- Basic datatypes (bit-accurate) -----------------------------
+@dataclass
+class TensorShape:
+    dims: Tuple[int, ...]
+
+@dataclass
+class Tensor:
+    name: str
+    shape: TensorShape
+    size_bits: int
+    device: str = "dram"  # 'dram' or 'rram'
+    layer: int = -1
+    bits_per_element: int = 16 
+
+    @property
+    def size_bytes(self) -> int:
+        return (self.size_bits + 7) // 8
+
+# ----------------------------- Memory models (bit units) -----------------------------
+@dataclass
+class MemoryDevice:
+    name: str
+    capacity_bits: int
+    read_bw_bits_per_cycle: int   # bits per cycle read bandwidth
+    write_bw_bits_per_cycle: int
+    read_energy_per_bit: float    # nJ per bit read
+    write_energy_per_bit: float   # nJ per bit write
+    read_latency_cycles: int
+    write_latency_cycles: int
+    used_bits: int = 0
+    #layer
+    num_layers: int = 5     # total number of layers
+    logic_layer: int = 0    # at bottom
+
+    tsv_bw_bits_per_cycle: int = 262144
+    tsv_base_latency_cycles: int = 3        # starting price
+    tsv_fixed_latency_per_hop: int = 1      # latency per layer
+
+    def tsv_hops(self, src_layer: int, dst_layer: int = None) -> int:   # how many layers need to transfer
+        dst = self.logic_layer if dst_layer is None else dst_layer
+        return abs(int(src_layer) - int(dst))
+
+    def tsv_cycles_for(self, size_bits: int, hops: int) -> int:
+        if size_bits <= 0 or hops == 0:
+            return 0
+        ser = (size_bits + self.tsv_bw_bits_per_cycle - 1) // self.tsv_bw_bits_per_cycle        # number of serial transfer
+        return ser * (self.tsv_base_latency_cycles + hops * self.tsv_fixed_latency_per_hop)
+
+    def can_allocate(self, size_bits: int) -> bool:
+        return self.used_bits + size_bits <= self.capacity_bits
+
+    def allocate(self, size_bits: int) -> bool:
+        if self.can_allocate(size_bits):
+            self.used_bits += size_bits
+            return True
+        return False
+
+    def free(self, size_bits: int) -> None:
+        self.used_bits = max(0, self.used_bits - size_bits)
+
+
+# ----------------------------- Compute unit model -----------------------------
+
+@dataclass
+class ComputeUnit:
+    name: str
+    macs_per_cycle: int
+    energy_per_mac_nj: float
+    sfe_ops_per_cycle: int = 0.  # sfe: special function engine
+    sfe_energy_per_op_nj: float = 0.0
+
+# ----------------------------- Simulator Stats -----------------------------
+
+@dataclass
+class Stats:
+    cycles: int = 0
+    energy_nj: float = 0.0
+    macs: int = 0
+    bits_read: int = 0
+    bits_written: int = 0
+    breakdown: Dict[str, float] = field(default_factory=dict)
+    macs_breakdown: Dict[str, int] = field(default_factory=dict) 
+    cycles_breakdown: Dict[str, int] = field(default_factory=dict) 
+
+    # define your output data
+
+    energy_read_dram_nj = 0.0
+    energy_write_dram_nj = 0.0
+    energy_comp_dram_nj = 0.0
+    energy_read_rram_nj = 0.0
+    energy_write_rram_nj = 0.0
+    energy_comp_rram_nj = 0.0
+
+    #useless
+    cycles_read_dram = 0
+    cycles_write_dram = 0
+    cycles_comp_dram = 0
+    cycles_read_rram = 0
+    cycles_write_rram = 0
+    cycles_comp_rram = 0
+
